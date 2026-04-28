@@ -153,6 +153,8 @@ def get_default_scheme(tag_id):
 def add(token, data)->dict:
     title = data.get('title', '活动标题') # 标题
     brief = data.get('brief', '活动介绍') # 介绍|描述
+    start_time = data.get('start_time', 0)  # 开始时间
+    end_time = data.get('end_time', 0)  # 结束时间
     fields = data.get('fields', []) # 表单字段
     post = data.get('post_img', {}) # 海报
     scheme = data.get('scheme', {}) # 风格配色
@@ -173,8 +175,17 @@ def add(token, data)->dict:
 
     # 开始生成活动参数
     now = int(time.time())
-    start_at = now
-    end_at = start_at + (86400 * 7)
+    start_time = int(start_time)
+    if (not start_time) or (start_time < 0):
+        start_time = now
+
+    start_at = start_time
+
+    end_time = int(end_time)
+    if (not end_time) or (end_time < start_time):
+        end_time = start_time + (7 * 86400)
+
+    end_at = end_time
     poster_url = DESIGN_DEFAULT_POSTER
     # 获取模板数据
     payload = generate(mark, template_id, token)
@@ -426,12 +437,20 @@ def edit(token, data)->dict:
     if not brief:
         brief = act_data['response']['activity']['introduce']
 
+    # 活动时间
+    start_time = data.get('start_time', 0)
+    end_time = data.get('end_time', 0)
+
+    start_at = act_data['response']['activity']['start_time']
+    if start_time:
+        start_at = start_time
+
+    end_at = act_data['response']['activity']['end_time']
+    if end_time:
+        end_at = end_time
+
     # 表单字段
     fields = data.get('fields', [])
-
-    # 保留活动开始和结束时间，可覆盖
-    start_at = act_data['response']['activity']['start_time']
-    end_at = act_data['response']['activity']['end_time']
 
     # 模板标识
     mark = act_data['response']['activity']['mark']

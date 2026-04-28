@@ -28,6 +28,8 @@ def get_activity(act_id):
             "act_type": "designh5",
             "title": res['response']['activity']['title'],
             "brief": res['response']['activity']['introduce'],
+            "start_time": res['response']['activity']['start_time'],
+            "end_time": res['response']['activity']['end_time'],
             "post_img": {
                 "url": res['response']['activity']['indexpic'],
                 "size": "",
