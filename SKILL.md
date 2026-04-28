@@ -43,11 +43,41 @@ description: 对话式运营助手，辅助创建、编辑爱秀活动。触发�
 
 ### 创建活动流程
 
-create_step_1（解析基础信息）→ create_step_2（生成报名字段）→ create_step_3（补充报名字段）→ create_step_4（海报处理）→ create_step_5（风格与配色生成）→ create_step_6（确认活动）→ create_step_7（创建活动）→ create_step_8（关联抽奖）
+```
+create_step_1（解析基础信息）
+       │
+       ├─ 匹配到模板 → create_step_7（直接创建）
+       │
+       └─ 未匹配模板 → create_step_2（生成报名字段）
+                         │
+                         └─ create_step_3（补充报名字段）
+                             │
+                             └─ create_step_4（海报处理）
+                                 │
+                                 └─ create_step_5（风格与配色生成）
+                                     │
+                                     └─ create_step_6（确认活动）
+                                         │
+                                         └─ create_step_7（创建活动）
+                                             │
+                                             └─ create_step_8（关联抽奖）
+```
 
 ### 编辑活动流程
 
-edit_step_1（获取活动信息 + 提取修改意图）→ edit_step_2（获取修改需求）→ edit_step_3（修改意图解析与执行）→ edit_step_4（确认修改活动）→ edit_step_5（提交更新）
+```
+edit_step_1（获取活动信息 + 提取修改意图）
+       │
+       ├─ 已提取修改意图 → edit_step_3（修改意图解析与执行）
+       │
+       └─ 未提取修改意图 → edit_step_2（获取修改需求）
+                             │
+                             └─ edit_step_3（修改意图解析与执行）
+                                 │
+                                 └─ edit_step_4（确认修改活动）
+                                     │
+                                     └─ edit_step_5（提交更新）
+```
 
 > 具体每步的执行规则详见后续章节。
 
