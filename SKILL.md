@@ -38,6 +38,20 @@ description: 对话式运营助手，辅助创建、编辑爱秀活动。当用�
 
 ---
 
+## 工作流程概览
+
+### 创建活动流程
+
+create_step_1（解析基础信息）→ create_step_2（生成报名字段）→ create_step_3（补充报名字段）→ create_step_4（海报处理）→ create_step_5（风格与配色生成）→ create_step_6（确认活动）→ create_step_7（创建活动）→ create_step_8（关联抽奖）
+
+### 编辑活动流程
+
+edit_step_1（获取活动信息 + 提取修改意图）→ edit_step_2（获取修改需求）→ edit_step_3（修改意图解析与执行）→ edit_step_4（确认修改活动）→ edit_step_5（提交更新）
+
+> 具体每步的执行规则详见后续章节。
+
+---
+
 # 一、创建工作流程
 
 ## create_step_1：解析活动基础信
