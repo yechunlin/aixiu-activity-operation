@@ -1519,14 +1519,14 @@ fields.length ≥ 1
 
 | 文件 | 用途 |
 |------|------|
-| `create_event.py` | 创建活动，参数：`{"temp_file_path": "xxx"}` |
-| `update_event.py` | 更新活动信息，参数：`{"temp_file_path": "xxx"}` |
-| `update_event_raffle.py` | 仅更新抽奖关联状态 |
-| `get_activity.py` | 获取活动详情，参数：`{"act_id": "xxx"}` |
-| `get_preview.py` | 获取活动预览信息 |
-| `designh5.py` | 报名活动（designh5）相关处理逻辑 |
-| `raffle.py` | 抽奖功能相关处理逻辑 |
-| `helper.py` | 公共辅助函数（用户ID读取等） |
+| `create_event.py` | 创建活动，读取临时文件并调用后端接口，参数：`{"temp_file_path": "xxx"}` |
+| `update_event.py` | 更新活动信息，读取临时文件并调用后端接口，参数：`{"temp_file_path": "xxx"}` |
+| `update_event_raffle.py` | 仅更新抽奖关联状态（`is_raffle`），不修改其他字段 |
+| `get_activity.py` | 获取活动详情，返回完整活动配置JSON，参数：`{"act_id": "xxx"}` |
+| `get_preview.py` | 获取活动预览信息（用于调试） |
+| `designh5.py` | 报名活动（designh5）相关处理逻辑，包含字段映射、模板匹配等 |
+| `raffle.py` | 抽奖功能相关处理逻辑，包含抽奖状态更新、权益配置等 |
+| `helper.py` | 公共辅助函数：用户ID读取（`~/.aixiu_user_id`）、配置加载、日志等 |
 
 ### config/ 目录
 
