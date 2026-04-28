@@ -1,4 +1,4 @@
-﻿---
+---
 name: aixiu-activity-operation
 description: 对话式运营助手，辅助创建、编辑爱秀活动。触发词（中文）：创建爱秀活动、创建报名活动、发布报名表、编辑爱秀活动、修改报名活动、修改活动字段、关联抽奖、活动报名；触发词（English）：create activity、create signup event、edit activity、modify registration form、link raffle、AIxiu activity。支持报名表单设计、海报配置、配色方案、抽奖关联等完整工作流。适用于快速创建报名活动、收集用户信息、管理活动信息的场景，支持与抽奖功能联动提升活动传播势能。
 ---
@@ -1649,7 +1649,3 @@ fields.length ≥ 1
 | `designh5.json` | 报名活动页面配置示例，用于 `create_step_5` 的配色参考 |
 
 ---
-
-
-
-
