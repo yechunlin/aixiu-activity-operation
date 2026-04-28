@@ -1436,3 +1436,34 @@ fields.length ≥ 1
 
 > "活动更新成功！"
 
+---
+
+## 资源引用说明
+
+本 Skill 依赖以下文件，执行前请确认它们存在且可访问。
+
+### scripts/ 目录
+
+| 文件 | 用途 |
+|------|------|
+| `create_event.py` | 创建活动，参数：`{"temp_file_path": "xxx"}` |
+| `update_event.py` | 更新活动信息，参数：`{"temp_file_path": "xxx"}` |
+| `update_event_raffle.py` | 仅更新抽奖关联状态 |
+| `get_activity.py` | 获取活动详情，参数：`{"act_id": "xxx"}` |
+| `get_preview.py` | 获取活动预览信息 |
+| `designh5.py` | 报名活动（designh5）相关处理逻辑 |
+| `raffle.py` | 抽奖功能相关处理逻辑 |
+| `helper.py` | 公共辅助函数（用户ID读取等） |
+
+### config/ 目录
+
+| 文件 | 用途 |
+|------|------|
+| `designh5/template_list.json` | 报名活动模板列表，用于 `create_step_1` 的模板匹配 |
+
+### template/ 目录
+
+| 文件 | 用途 |
+|------|------|
+| `designh5.json` | 报名活动页面配置示例，用于 `create_step_5` 的配色参考 |
+
