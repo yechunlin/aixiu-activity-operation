@@ -412,7 +412,7 @@ def edit(token, data)->dict:
     scheme = data.get('scheme', {})
     tag_id = ""
     use_default_post = 0
-    is_raffle = data['is_raffle'] or 0  # 是否关联抽奖
+    is_raffle = data.get('is_raffle', 0)  # 是否关联抽奖
 
     # 判断是否取默认风格
     if tag_id:
