@@ -61,7 +61,7 @@ MARK = 'designh5@form'
 
 # 生成海报
 def generate_poster(title, post) -> str:
-    url = post.get('url', '')
+    url = post.get('url', DESIGN_DEFAULT_POSTER)
     if url: return url
     des_str = post.get('desc_str', title)
     size = post.get('size', "818*1404")
